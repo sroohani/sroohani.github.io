@@ -25,8 +25,8 @@ const RESOURCES = {"icons/Icon-maskable-512.png": "301a7604d45b3e739efc881eb0489
 "assets/FontManifest.json": "dc3d03800ccca4601324923c0b1d6d57",
 "assets/AssetManifest.bin": "693635b5258fe5f1cda720cf224f158c",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "57d849d738900cfd590e9adc7e208250",
-"index.html": "c45d323cfd77b6a2df937730db8bd4c5",
-"/": "c45d323cfd77b6a2df937730db8bd4c5",
+"index.html": "6fb2b894ec2429a259675fb9793db9a9",
+"/": "6fb2b894ec2429a259675fb9793db9a9",
 "version.json": "37648b5bf3de47cb340644aa1fd1c776"};
 // The application shell files that are downloaded before a service worker can
 // start.
