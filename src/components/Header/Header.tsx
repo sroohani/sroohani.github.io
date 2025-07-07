@@ -20,7 +20,7 @@ const Header = () => {
     <header className={classes.header}>
       <Prompt prompt="me@here" cursor={"|"} />
       <Navbar items={navbarItems} />
-      <ThemeSelectorButton />
+      <ThemeSelectorButton title="Change theme" />
     </header>
   );
 };

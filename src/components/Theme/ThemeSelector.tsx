@@ -1,4 +1,3 @@
-// import RadioButton from "./ThemeRadioButton";
 import classes from "./ThemeSelector.module.css";
 import { useAtom, useAtomValue, useSetAtom } from "jotai";
 import {
@@ -17,7 +16,8 @@ const ThemeSelector = () => {
   const themeSelectorPosition = useAtomValue(themeSelectorPositionAtom);
 
   const panelRef = useOutsideCloseCommand(() => {
-    setShowThemeSelector(false);
+    panelRef.current?.classList.add("about-to-unmount");
+    setTimeout(() => setShowThemeSelector(false), 500);
   });
 
   const handleThemeChange = (newTheme: ThemeInfo): void => {
@@ -35,31 +35,23 @@ const ThemeSelector = () => {
   });
 
   return (
-    <div ref={panelRef} className={classes.panel}>
-      {themeInfo.map((info) => {
-        return (
-          // <RadioButton
-          //   value={info.name}
-          //   name="theme"
-          //   required={true}
-          //   checked={theme.name === info.name}
-          //   onChange={() => handleThemeChange(info)}
-          //   focus={theme.name === info.name}
-          //   key={info.id}
-          // >
-          <Theme
-            text={info.displayName}
-            name="theme"
-            required={true}
-            checked={theme.name === info.name}
-            theme={info.name}
-            onChange={() => handleThemeChange(info)}
-            focus={theme.name === info.name}
-            key={info.id}
-          />
-          // </RadioButton>
-        );
-      })}
+    <div className={classes.overlay}>
+      <div ref={panelRef} className={classes.panel}>
+        {themeInfo.map((info) => {
+          return (
+            <Theme
+              text={info.displayName}
+              name="theme"
+              required={true}
+              checked={theme.name === info.name}
+              theme={info.name}
+              onChange={() => handleThemeChange(info)}
+              focus={theme.name === info.name}
+              key={info.id}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };
