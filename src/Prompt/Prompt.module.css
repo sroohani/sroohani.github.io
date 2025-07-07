@@ -1,0 +1,25 @@
+.prompt {
+  min-width: 20ch;
+  background-color: inherit;
+  color: inherit;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.cursor {
+  animation-name: blink;
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

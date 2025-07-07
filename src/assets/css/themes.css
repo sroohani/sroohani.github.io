@@ -1,0 +1,23 @@
+.p-green {
+  --primary-color: #33ff33;
+  --secondary-color: #00df7d;
+  --accent-color: #a2af9f;
+  --background-color: #000;
+  --text-color: var(--primary-color);
+}
+
+.p-amber {
+  --primary-color: #ffcc00;
+  --secondary-color: #ffc250;
+  --accent-color: #a2af9f;
+  --background-color: #000;
+  --text-color: var(--primary-color);
+}
+
+.p-white {
+  --primary-color: #dcdae3;
+  --secondary-color: #b3bbc8;
+  --accent-color: #879eab;
+  --background-color: #000;
+  --text-color: var(--primary-color);
+}
