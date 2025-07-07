@@ -1,0 +1,19 @@
+.navlink {
+  text-decoration: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: inherit;
+  background-color: inherit;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.icon {
+  margin-right: 0.5rem;
+}
