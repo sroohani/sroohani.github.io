@@ -16,7 +16,7 @@ const ThemeSelectorButton = ({ title }: Props) => {
     const boundingClientRect = e.currentTarget.getBoundingClientRect();
 
     setThemeSelectorPosition({
-      x: boundingClientRect.left,
+      x: boundingClientRect.right,
       y: boundingClientRect.bottom,
     });
     setShowThemeSelector((prev) => !prev);
