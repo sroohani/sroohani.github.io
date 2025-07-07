@@ -3,13 +3,13 @@ import "./index.css";
 import App from "./App.tsx";
 import { Home, About, Contact, Projects, NotFound } from "./pages";
 import {
-  createBrowserRouter,
+  createHashRouter,
   createRoutesFromElements,
   Route,
   RouterProvider,
 } from "react-router-dom";
 
-const router = createBrowserRouter(
+const router = createHashRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route index element={<Home />} />
