@@ -1,0 +1,17 @@
+{
+  "header": {
+    "name": "Shahram Roohani",
+    "location": "Porto, Portugal",
+    "portfolio": "https://sroohani.github/io",
+    "github": "https://github.com/sroohani",
+    "linkedin": "https://www.linkedin.com/in/shahramroohani/"
+  },
+  "summary": "Seasoned C and C++ developer with 24+ years of experience, transitioning into full-stack development. Sefl-taught in Go, TypeScript, and React, with a focus on building performant, scalable applications. Passionate about open-source contributions and modern web architectures.",
+  "skills": {
+    "languages": ["C", "Modern C++", "Go", "TypeScript", "Python"],
+    "frontend": ["React", "HTML", "CSS", "JavaScript (ES6+)"],
+    "backend": ["Go (Fiber)", "Node.js (Express)", "REST APIs"],
+    "systems": ["Multithreading", "Memory Management", "Linux"],
+    "tools": ["Git", "Docker", "Vite", "PostgreSQL", "MariaDB"]
+  }
+}
