@@ -1,0 +1,40 @@
+.frame {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.2rem;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  border-width: var(--border-width);
+  border-style: var(--border-style);
+  border-color: var(--text-color);
+  border-radius: 0 var(--border-radius);
+}
+
+.frame[class~="active"],
+.frame[class~="active"] .navlink {
+  color: var(--background-color);
+  background-color: var(--text-color);
+}
+
+.navlink {
+  text-decoration: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.5rem;
+  margin: 0;
+  min-width: 15ch;
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+.hr {
+  width: 100%;
+  height: 2px;
+  border-color: var(--background-color);
+  border: 0;
+  border-top: 2px solid;
+}

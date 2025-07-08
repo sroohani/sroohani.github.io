@@ -2,12 +2,14 @@ import { Outlet, useLocation } from "react-router-dom";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import ThemeSelector from "./components/Theme/ThemeSelector";
-import { useAtom, useAtomValue, useSetAtom } from "jotai";
+import { atom, useAtom, useAtomValue, useSetAtom } from "jotai";
 import { showThemeSelectorAtom } from "./components/Theme/store";
 import { useEffect } from "react";
 import { themeAtom } from "./components/Theme/store";
 import { themeInfo } from "./components/Theme/types";
 import { promptPathAtom } from "./Prompt/store";
+import { currentTabAtoms } from "./components/Tabbar/types";
+import { aboutTabbarItems, aboutTabbarName } from "./data/tabbar-items";
 
 function App() {
   const showThemeSelector = useAtomValue(showThemeSelectorAtom);
@@ -16,8 +18,12 @@ function App() {
   const location = useLocation();
 
   useEffect(() => {
+    currentTabAtoms.set(aboutTabbarName, atom<number>(aboutTabbarItems[0].id));
+  }, []);
+
+  useEffect(() => {
     setPromptPath(location.pathname === "/" ? "~" : `~${location.pathname}`);
-  });
+  }, [setPromptPath, location]);
 
   useEffect(() => {
     const themeName = localStorage.getItem("theme");
