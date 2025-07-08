@@ -16,6 +16,11 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
+import { currentTabAtoms } from "./components/Tabbar/types";
+import { aboutTabbarItems, aboutTabbarName } from "./data/tabbar-items";
+import { atom } from "jotai";
+
+currentTabAtoms.set(aboutTabbarName, atom<number>(aboutTabbarItems[0].id));
 
 const router = createHashRouter(
   createRoutesFromElements(
