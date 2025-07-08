@@ -1,8 +1,10 @@
 .header {
+  height: var(--header-height);
+  background-color: var(--background-color);
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 1rem;
-  height: var(--header-height);
   border-bottom: 1px solid;
+  flex-shrink: 0;
 }
