@@ -3,6 +3,7 @@ import classes from "./Home.module.css";
 import { useNavigate } from "react-router-dom";
 import { useCurrentTabSetAtom } from "@/components/Tabbar/hooks";
 import { aboutTabbarItems, aboutTabbarName } from "@/data/tabbar-items";
+import logo from "@/assets/images/logo.jpeg";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -10,11 +11,12 @@ const Home = () => {
 
   return (
     <div className={classes.frame}>
+      <img className={classes.logo} src={logo} alt="Logo" />
       <h3>Hi 👋</h3>
       <h3>My name is Shahram</h3>
       <p className={classes.whoami}>
-        I'm a seasoned C and C++ developer who also passionately explores the
-        world of web technologies.
+        I'm a seasoned C and C++ developer with 24+ years of experience who also
+        passionately explores the world of web technologies.
       </p>
       <div className={classes["button-bar"]}>
         <Button
