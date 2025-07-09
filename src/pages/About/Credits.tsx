@@ -24,6 +24,11 @@ const Credits = () => {
         href="https://simpleicons.org/"
       />
       <Credit
+        img="https://avatars.githubusercontent.com/u/39895671?s=200&v=4"
+        title="React Icons"
+        href="https://react-icons.github.io/react-icons/"
+      />
+      <Credit
         img={logo}
         title="Logo by Microsoft Designer AI"
         href="https://create.microsoft.com/en-us/features/ai-image-generator"

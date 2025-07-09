@@ -1,0 +1,47 @@
+.frame {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.social {
+  display: flex;
+  justify-content: flex-start;
+  padding: 1rem;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.social svg[class~="icon"] {
+  fill: var(--text-color);
+  width: 64px;
+  height: 64px;
+}
+
+.social svg[class~="copy"] {
+  width: 24px;
+  height: 24px;
+  fill: transparent; /* var(--background-color);*/
+  stroke: var(--text-color);
+}
+
+/* .social svg[class~="copied"] {
+  width: 24px;
+  height: 24px;
+  stroke: var(--background-color);
+  fill: var(--text-color);
+} */
+
+.hr {
+  width: 100%;
+  height: 1px;
+  border-color: inherit;
+  border: 0;
+  border-top: 1px solid;
+}
