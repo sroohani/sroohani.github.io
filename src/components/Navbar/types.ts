@@ -8,4 +8,6 @@ export type NavbarItemDef = {
   icon?: LucideIcon;
 };
 
-export const navbarPathAtom = atom("/");
+export type CurrentPageAtoms = Map<string, ReturnType<typeof atom<string>>>;
+
+export const currentPageAtoms: CurrentPageAtoms = new Map();

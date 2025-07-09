@@ -11,7 +11,7 @@ const getCurrentTabAtom = (tabbarName: string): PrimitiveAtom<number> => {
   const currentTabAtom = currentTabAtoms.get(tabbarName);
   if (!currentTabAtom) {
     throw new Error(
-      `Tabbar ${tabbarName} does not have an atom. Did you forget to add it to the atoms map?`
+      `Tabbar "${tabbarName}" does not have an atom. Did you forget to add it to the atoms map?`
     );
   }
 

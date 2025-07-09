@@ -19,7 +19,10 @@ import {
 import { currentTabAtoms } from "./components/Tabbar/types";
 import { aboutTabbarItems, aboutTabbarName } from "./data/tabbar-items";
 import { atom } from "jotai";
+import { currentPageAtoms } from "./components/Navbar/types.ts";
+import navbarItems, { mainNavbarName } from "./data/navbar-items.tsx";
 
+currentPageAtoms.set(mainNavbarName, atom<string>(navbarItems[0].to));
 currentTabAtoms.set(aboutTabbarName, atom<number>(aboutTabbarItems[0].id));
 
 const router = createHashRouter(

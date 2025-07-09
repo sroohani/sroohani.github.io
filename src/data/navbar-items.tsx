@@ -30,3 +30,5 @@ const navbarItems: NavbarItemDef[] = [
 ];
 
 export default navbarItems;
+
+export const mainNavbarName = "main";
