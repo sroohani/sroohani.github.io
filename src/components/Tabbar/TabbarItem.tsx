@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import classes from "./TabbarItem.module.css";
 import type { LucideIcon } from "lucide-react";
 import { useEffect, useRef, type MouseEvent } from "react";
@@ -13,12 +12,10 @@ interface TabbarItemProps {
 
 const TabbarItem = ({
   title,
-  to,
   icon: Icon,
   active,
   onClick,
 }: TabbarItemProps) => {
-  const navigate = useNavigate();
   const frameRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -33,9 +30,6 @@ const TabbarItem = ({
 
   const clickHandler = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    if (to) {
-      navigate(to);
-    }
     if (onClick) {
       onClick();
     }
@@ -45,7 +39,7 @@ const TabbarItem = ({
     <div ref={frameRef} className={classes.frame}>
       <a
         className={classes.navlink}
-        href={to ?? ""}
+        href="#"
         onClick={(e) => {
           clickHandler(e);
         }}

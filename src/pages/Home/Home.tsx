@@ -1,9 +1,12 @@
 import Button from "@/components/Button/Button";
 import classes from "./Home.module.css";
 import { useNavigate } from "react-router-dom";
+import { useCurrentTabSetAtom } from "@/components/Tabbar/hooks";
+import { aboutTabbarItems, aboutTabbarName } from "@/data/tabbar-items";
 
 const Home = () => {
   const navigate = useNavigate();
+  const setCurrentAboutTab = useCurrentTabSetAtom(aboutTabbarName);
 
   return (
     <div className={classes.frame}>
@@ -16,7 +19,10 @@ const Home = () => {
       <div className={classes["button-bar"]}>
         <Button
           title="View or download my resume"
-          onClick={() => navigate("/about/resume")}
+          onClick={() => {
+            setCurrentAboutTab(aboutTabbarItems[0].id);
+            navigate("/about/resume");
+          }}
         />
         <Button
           title="Send me a message"
