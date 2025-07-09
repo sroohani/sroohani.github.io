@@ -1,17 +1,17 @@
 import { NavLink } from "react-router-dom";
 import classes from "./NavbarItem.module.css";
 import { type LucideIcon } from "lucide-react";
-import { useSetAtom } from "jotai";
-import { navbarPathAtom } from "./types";
+import { useCurrentPageSetAtom } from "./hooks";
 
 interface NavbarItemProps {
   title: string;
   to: string;
+  navbarName: string;
   icon?: LucideIcon;
 }
 
-const NavbarItem = ({ title, to, icon: Icon }: NavbarItemProps) => {
-  const setPath = useSetAtom(navbarPathAtom);
+const NavbarItem = ({ title, to, navbarName, icon: Icon }: NavbarItemProps) => {
+  const setPath = useCurrentPageSetAtom(navbarName);
 
   return (
     <NavLink className={classes.navlink} to={to} onClick={() => setPath(to)}>

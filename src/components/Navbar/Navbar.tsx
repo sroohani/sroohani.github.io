@@ -3,15 +3,16 @@ import NavbarItem from "./NavbarItem";
 import classes from "./Navbar.module.css";
 
 interface NavbarMenuProps {
-  vertical?: boolean;
+  name: string;
   items: NavbarItemDef[];
+  vertical?: boolean;
 }
 
-const Navbar = ({ vertical = false, items }: NavbarMenuProps) => {
+const Navbar = ({ name, items, vertical = false }: NavbarMenuProps) => {
   return (
     <nav className={`${classes.nav} ${vertical && classes.vertical}`}>
       {items.map((item) => (
-        <NavbarItem key={item.id} {...item} />
+        <NavbarItem key={item.id} {...item} navbarName={name} />
       ))}
     </nav>
   );
