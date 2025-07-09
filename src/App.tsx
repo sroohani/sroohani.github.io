@@ -7,7 +7,7 @@ import { showThemeSelectorAtom } from "./components/Theme/store";
 import { useEffect } from "react";
 import { themeAtom } from "./components/Theme/store";
 import { themeInfo } from "./components/Theme/types";
-import { promptPathAtom } from "./Prompt/store";
+import { promptPathAtom } from "./components/Prompt/store";
 
 function App() {
   const showThemeSelector = useAtomValue(showThemeSelectorAtom);

@@ -1,0 +1,38 @@
+.button {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border: var(--border-width) var(--border-style) var(--text-color);
+  border-radius: var(--border-radius);
+  animation: hide-shadow 0.3s;
+  min-width: 35ch;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 1rem;
+}
+
+.button:hover {
+  animation: show-shadow 0.3s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes show-shadow {
+  0% {
+    box-shadow: 0 0 0px 0px var(--text-color);
+  }
+  100% {
+    box-shadow: 0 0 6px 2px var(--text-color);
+  }
+}
+
+@keyframes hide-shadow {
+  0% {
+    box-shadow: 0 0 6px 2px var(--text-color);
+  }
+  100% {
+    box-shadow: 0 0 0px 0px var(--text-color);
+  }
+}
