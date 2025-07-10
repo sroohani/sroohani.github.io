@@ -1,17 +1,18 @@
 .button {
   background-color: var(--background-color);
   color: var(--text-color);
-  border: none;
   outline: none;
   cursor: pointer;
   padding: 0.5rem;
   border: var(--border-width) var(--border-style) var(--text-color);
   border-radius: var(--border-radius);
   animation: hide-shadow 0.3s;
-  min-width: 35ch;
+  width: 20ch;
   font-size: 1.2rem;
   font-weight: 600;
   margin: 1rem;
+  white-space: normal;
+  word-wrap: break-word;
 }
 
 .button:hover {

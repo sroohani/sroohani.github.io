@@ -12,7 +12,7 @@
   height: 100dvh;
   --header-height: 2.5rem;
   --footer-height: 2.5rem;
-  --main-height: calc(100dvh - var(--header-height) - var(--footer-height));
+  --main-height: calc(100vh - var(--header-height) - var(--footer-height));
   --border-width: 2px;
   --border-radius: 10px;
   --border-style: solid;
