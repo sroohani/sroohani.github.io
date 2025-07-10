@@ -5,8 +5,5 @@
   justify-content: flex-start;
   align-items: center;
   gap: 1rem;
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: var(--text-color) var(--background-color);
   height: 100%;
 }

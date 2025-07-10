@@ -1,0 +1,5 @@
+.main-frame {
+  margin: 0;
+  padding: 0;
+  height: var(--main-height);
+}

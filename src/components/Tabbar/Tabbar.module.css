@@ -8,10 +8,71 @@
 
 .tabbar {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+  width: 100%;
+  overflow: hidden;
+}
+
+.tabs-container {
+  display: flex;
   justify-content: flex-start;
   align-items: center;
   gap: 0.2rem;
   width: 100%;
+  overflow-x: hidden;
+}
+
+.chevron {
+  border: var(--border-width) var(--border-style) var(--text-color);
+  background-color: transparent;
+  height: 100%;
+  cursor: pointer;
+  animation: normal-colors 0.3s;
+}
+
+.chevron svg {
+  stroke: var(--text-color);
+}
+
+.chevron-left {
+  border-radius: var(--border-radius) 0 0 var(--border-radius);
+}
+
+.chevron-right {
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+.chevron[disabled] {
+  opacity: 0.2;
+}
+
+.chevron:hover:not([disabled]) svg {
+  animation: inverted-colors 0.3s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes inverted-colors {
+  0% {
+    stroke: var(--text-color);
+    fill: var(--background-color);
+  }
+  100% {
+    fill: var(--text-color);
+    stroke: var(--background-color);
+  }
+}
+
+@keyframes normal-colors {
+  0% {
+    fill: var(--text-color);
+    stroke: var(--background-color);
+  }
+  100% {
+    stroke: var(--text-color);
+    fill: var(--background-color);
+  }
 }
 
 .hr {
