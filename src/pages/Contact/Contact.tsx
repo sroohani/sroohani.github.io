@@ -4,10 +4,13 @@ import { RiCellphoneLine } from "react-icons/ri";
 import { MdOutlineMail } from "react-icons/md";
 import { TbCopy } from "react-icons/tb";
 import { TbCopyCheck } from "react-icons/tb";
+import ContactInfoModal from "./ContactInfoModal";
 
 import classes from "./Contact.module.css";
 import resumeJson from "@/assets/json/resume.json";
 import { useState } from "react";
+import { useAtom } from "jotai";
+import { showContactInfoModalAtom } from "./store";
 
 const cellphone = 0;
 const email = 1;
@@ -15,24 +18,65 @@ const email = 1;
 const Contact = () => {
   const [showCellPhoneCopy, setShowCellPhoneCopy] = useState(true);
   const [showEmailCopy, setShowEmailCopy] = useState(true);
+  const [showContactInfoModal, setShowContactInfoModal] = useAtom(
+    showContactInfoModalAtom
+  );
+  const [contactInfoModalData, setContactInfoModalData] = useState<{
+    title: string;
+    text: string;
+  }>({ title: "", text: "" });
 
-  const handleCopy = (what: number) => {
+  const canCopy: boolean =
+    navigator.clipboard !== undefined &&
+    navigator.clipboard.writeText !== undefined;
+
+  const handleCopy = async (what: number) => {
+    try {
+      switch (what) {
+        case email:
+          await navigator.clipboard.writeText(resumeJson.header.email);
+          setShowEmailCopy(false);
+          setTimeout(() => setShowEmailCopy(true), 5000);
+          break;
+
+        case cellphone:
+          await navigator.clipboard.writeText(resumeJson.header.cellphone);
+          setShowCellPhoneCopy(false);
+          setTimeout(() => setShowCellPhoneCopy(true), 5000);
+          break;
+
+        default:
+          break;
+      }
+    } catch (err) {
+      if (err instanceof Error) {
+        console.error(err.message);
+      } else {
+        console.error(`Error copying text to clipboard: ${err}`);
+      }
+    }
+  };
+
+  const handleContactInfoClick = (what: number) => {
     switch (what) {
       case email:
-        navigator.clipboard.writeText(resumeJson.header.email);
-        setShowEmailCopy(false);
-        setTimeout(() => setShowEmailCopy(true), 5000);
+        setContactInfoModalData({
+          title: "Email",
+          text: resumeJson.header.email,
+        });
         break;
 
       case cellphone:
-        navigator.clipboard.writeText(resumeJson.header.cellphone);
-        setShowCellPhoneCopy(false);
-        setTimeout(() => setShowCellPhoneCopy(true), 5000);
+        setContactInfoModalData({
+          title: "Cell Phone",
+          text: resumeJson.header.cellphone,
+        });
         break;
-
       default:
-        break;
+        return;
     }
+
+    setShowContactInfoModal(true);
   };
 
   return (
@@ -47,37 +91,48 @@ const Contact = () => {
         </a>
         <a
           href="#"
-          title="Email - Click to copy"
+          title={`Email - Click to ${canCopy ? "copy" : "reveal"}`}
           onClick={(e) => {
             e.preventDefault();
-            handleCopy(email);
+            if (canCopy) {
+              handleCopy(email);
+            } else {
+              handleContactInfoClick(email);
+            }
           }}
         >
           <MdOutlineMail className="icon" />
-          {showEmailCopy ? (
-            <TbCopy className="copy" />
-          ) : (
-            <TbCopyCheck className="copy" />
-          )}
+          {canCopy &&
+            (showEmailCopy ? (
+              <TbCopy className="copy" />
+            ) : (
+              <TbCopyCheck className="copy" />
+            ))}
         </a>
         <a
           href="#"
           onClick={(e) => {
             e.preventDefault();
-            handleCopy(cellphone);
+            if (canCopy) {
+              handleCopy(cellphone);
+            } else {
+              handleContactInfoClick(cellphone);
+            }
           }}
         >
           <RiCellphoneLine
             className="icon"
-            title="Cell Phone - Click to copy"
+            title={`Cell Phone - Click to ${canCopy ? "copy" : "reveal"}`}
           />
-          {showCellPhoneCopy ? (
-            <TbCopy className="copy" />
-          ) : (
-            <TbCopyCheck className="copy" />
-          )}
+          {canCopy &&
+            (showCellPhoneCopy ? (
+              <TbCopy className="copy" />
+            ) : (
+              <TbCopyCheck className="copy" />
+            ))}
         </a>
       </div>
+      {showContactInfoModal && <ContactInfoModal {...contactInfoModalData} />}
       <hr className={classes.hr} />
     </div>
   );
