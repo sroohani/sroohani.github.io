@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { themeAtom } from "./components/Theme/store";
 import { themeInfo } from "./components/Theme/types";
 import { promptPathAtom } from "./components/Prompt/store";
+import { MainFrame } from "./pages";
 
 function App() {
   const showThemeSelector = useAtomValue(showThemeSelectorAtom);
@@ -43,7 +44,9 @@ function App() {
   return (
     <>
       <Header />
-      <Outlet />
+      <MainFrame>
+        <Outlet />
+      </MainFrame>
       <Footer />
       {showThemeSelector && <ThemeSelector />}
     </>

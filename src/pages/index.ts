@@ -5,5 +5,6 @@ import Credits from "./About/Credits";
 import Contact from "./Contact/Contact";
 import Projects from "./Projects/Projects";
 import NotFound from "./NotFound/NotFound";
+import MainFrame from "./MainFrame";
 
-export { Home, About, Resume, Credits, Contact, Projects, NotFound };
+export { Home, About, Resume, Credits, Contact, Projects, NotFound, MainFrame };
