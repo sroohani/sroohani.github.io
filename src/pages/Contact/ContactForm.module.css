@@ -1,0 +1,80 @@
+.message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+input,
+select,
+option {
+  display: inline-block;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  width: 100%;
+}
+
+input[type="text"],
+input[type="email"] {
+  padding: 0.2rem;
+  border: none;
+  outline: none;
+  height: 3rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder {
+  opacity: 0;
+}
+
+textarea {
+  padding: 0.2rem;
+  border: none;
+  outline: none;
+  height: 3rem;
+  width: 100%;
+  padding: 1rem 0.2rem;
+  height: 10rem;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+textarea::placeholder {
+  opacity: 0;
+}
+
+.form-label {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
+  border-bottom: 1px var(--border-style) var(--text-color);
+  width: 80%;
+}
+
+.floating-span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(1rem);
+  opacity: 0.6;
+  transition-duration: 0.3s;
+}
+
+.form-label:focus-within .floating-span,
+.form-label input:not(:placeholder-shown) + .floating-span,
+.form-label textarea:not(:placeholder-shown) + .floating-span {
+  transform: translateY(-1rem);
+  opacity: 1;
+}
