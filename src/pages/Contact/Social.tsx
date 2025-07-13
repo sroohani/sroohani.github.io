@@ -3,133 +3,60 @@ import { SiGithub } from "@icons-pack/react-simple-icons";
 import { CiLinkedin } from "react-icons/ci";
 import { RiCellphoneLine } from "react-icons/ri";
 import { MdOutlineMail } from "react-icons/md";
-import { TbCopy } from "react-icons/tb";
-import { TbCopyCheck } from "react-icons/tb";
-import { useState } from "react";
 import resumeJson from "@/assets/json/resume.json";
 import { useAtom } from "jotai";
-import { showContactInfoModalAtom } from "./store";
-import ContactInfoModal from "./ContactInfoModal";
-
-const cellphone = 0;
-const email = 1;
+import { showContactInfoModalAtom } from "@/components/ContactInfoModal/store";
+import ContactInfoModal from "@/components/ContactInfoModal/ContactInfoModal";
+import IconLink from "@/components/IconLink/IconLink";
+import { useRef } from "react";
 
 const Social = () => {
   const [showContactInfoModal, setShowContactInfoModal] = useAtom(
     showContactInfoModalAtom
   );
-  const [showCellPhoneCopy, setShowCellPhoneCopy] = useState(true);
-  const [showEmailCopy, setShowEmailCopy] = useState(true);
-  const [contactInfoModalData, setContactInfoModalData] = useState<{
-    title: string;
-    text: string;
-  }>({ title: "", text: "" });
+  const contactInfoModalData = useRef<{ title: string; text: string }>({
+    title: "",
+    text: "",
+  });
 
-  const canCopy: boolean =
-    navigator.clipboard !== undefined &&
-    navigator.clipboard.writeText !== undefined;
-
-  const handleCopy = async (what: number) => {
-    try {
-      switch (what) {
-        case email:
-          await navigator.clipboard.writeText(resumeJson.header.email);
-          setShowEmailCopy(false);
-          setTimeout(() => setShowEmailCopy(true), 5000);
-          break;
-
-        case cellphone:
-          await navigator.clipboard.writeText(resumeJson.header.cellphone);
-          setShowCellPhoneCopy(false);
-          setTimeout(() => setShowCellPhoneCopy(true), 5000);
-          break;
-
-        default:
-          break;
-      }
-    } catch (err) {
-      if (err instanceof Error) {
-        console.error(err.message);
-      } else {
-        console.error(`Error copying text to clipboard: ${err}`);
-      }
-    }
-  };
-
-  const handleContactInfoClick = (what: number) => {
-    switch (what) {
-      case email:
-        setContactInfoModalData({
-          title: "Email",
-          text: resumeJson.header.email,
-        });
-        break;
-
-      case cellphone:
-        setContactInfoModalData({
-          title: "Cell Phone",
-          text: resumeJson.header.cellphone,
-        });
-        break;
-      default:
-        return;
-    }
-
+  const handleContactItemClick = (title: string, text: string) => {
+    contactInfoModalData.current = { title, text };
     setShowContactInfoModal(true);
   };
 
   return (
     <div className={classes.frame}>
-      {" "}
-      <a href="https://github.com/sroohani" target="_blank">
-        <SiGithub className="icon" title="GitHub" />
-      </a>
-      <a href="https://www.linkedin.com/in/shahramroohani/" target="_blank">
-        <CiLinkedin className="icon" title="LinkedIn" />
-      </a>
-      <a
-        href="#"
-        title={`Email - Click to ${canCopy ? "copy" : "reveal"}`}
-        onClick={(e) => {
-          e.preventDefault();
-          if (canCopy) {
-            handleCopy(email);
-          } else {
-            handleContactInfoClick(email);
-          }
-        }}
-      >
-        <MdOutlineMail className="icon" />
-        {canCopy &&
-          (showEmailCopy ? (
-            <TbCopy className="copy" />
-          ) : (
-            <TbCopyCheck className="copy" />
-          ))}
-      </a>
-      <a
-        href="#"
-        onClick={(e) => {
-          e.preventDefault();
-          if (canCopy) {
-            handleCopy(cellphone);
-          } else {
-            handleContactInfoClick(cellphone);
-          }
-        }}
-      >
-        <RiCellphoneLine
-          className="icon"
-          title={`Cell Phone - Click to ${canCopy ? "copy" : "reveal"}`}
-        />
-        {canCopy &&
-          (showCellPhoneCopy ? (
-            <TbCopy className="copy" />
-          ) : (
-            <TbCopyCheck className="copy" />
-          ))}
-      </a>
-      {showContactInfoModal && <ContactInfoModal {...contactInfoModalData} />}
+      <IconLink
+        icon={SiGithub}
+        href="https://github.com/sroohani"
+        title="GitHub"
+      />
+      <IconLink
+        icon={CiLinkedin}
+        href="https://www.linkedin.com/in/shahramroohani/"
+        title="LinkedIn"
+      />
+      <IconLink
+        icon={MdOutlineMail}
+        withCopy={true}
+        textToCopy={resumeJson.header.email}
+        title="Email"
+        copyFallback={() =>
+          handleContactItemClick("Email", resumeJson.header.email)
+        }
+      />
+      <IconLink
+        icon={RiCellphoneLine}
+        withCopy={true}
+        textToCopy={resumeJson.header.cellphone}
+        title="Cell Phone"
+        copyFallback={() =>
+          handleContactItemClick("Cell Phone", resumeJson.header.cellphone)
+        }
+      />
+      {showContactInfoModal && (
+        <ContactInfoModal {...contactInfoModalData.current} />
+      )}
     </div>
   );
 };
