@@ -1,0 +1,17 @@
+.icon-container {
+  display: flex;
+  gap: 0.1rem;
+}
+
+.icon {
+  fill: var(--text-color);
+  width: 32px;
+  height: 32px;
+}
+
+.copy {
+  width: 16px;
+  height: 16px;
+  fill: transparent;
+  stroke: var(--text-color);
+}
