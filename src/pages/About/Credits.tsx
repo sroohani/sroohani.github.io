@@ -3,6 +3,7 @@ import classes from "./Credits.module.css";
 import solas from "@/assets/images/solas.png";
 import noImage from "@/assets/images/no-image.jpg";
 import logo from "@/assets/images/logo.jpeg";
+import loader from "@/assets/images/loader.png";
 
 const Credits = () => {
   return (
@@ -12,6 +13,11 @@ const Credits = () => {
         img={noImage}
         title="Photo by Markus Spiske from Pexels"
         href="https://www.pexels.com/photo/codes-on-tilt-shift-lens-2004161/"
+      />
+      <Credit
+        img={loader}
+        title="Loader by CSS Loaders"
+        href="https://css-loaders.com/"
       />
       <Credit
         img="https://avatars.githubusercontent.com/u/66879934?s=200&v=4"

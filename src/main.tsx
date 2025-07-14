@@ -2,15 +2,6 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.tsx";
 import {
-  Home,
-  About,
-  Contact,
-  Projects,
-  NotFound,
-  Resume,
-  Credits,
-} from "./pages";
-import {
   createHashRouter,
   createRoutesFromElements,
   Route,
@@ -21,6 +12,15 @@ import { aboutTabbarItems, aboutTabbarName } from "./data/tabbar-items";
 import { atom } from "jotai";
 import { currentPageAtoms } from "./components/Navbar/types.ts";
 import navbarItems, { mainNavbarName } from "./data/navbar-items.tsx";
+import { lazy } from "react";
+
+const Home = lazy(() => import("./pages/Home/Home.tsx"));
+const About = lazy(() => import("./pages/About/About.tsx"));
+const Contact = lazy(() => import("./pages/Contact/Contact.tsx"));
+const Projects = lazy(() => import("./pages/Projects/Projects.tsx"));
+const NotFound = lazy(() => import("./pages/NotFound/NotFound.tsx"));
+const Resume = lazy(() => import("./pages/About/Resume.tsx"));
+const Credits = lazy(() => import("./pages/About/Credits.tsx"));
 
 currentPageAtoms.set(mainNavbarName, atom<string>(navbarItems[0].to));
 currentTabAtoms.set(aboutTabbarName, atom<number>(aboutTabbarItems[0].id));
