@@ -2,13 +2,14 @@ import { Outlet, useLocation } from "react-router-dom";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import { useAtom, useAtomValue, useSetAtom } from "jotai";
-import { useEffect } from "react";
+import { useEffect, Suspense } from "react";
 import { themeAtom } from "./components/Theme/store";
 import { themeInfo } from "./components/Theme/types";
 import { promptPathAtom } from "./components/Prompt/store";
-import { MainFrame } from "./pages";
+import MainFrame from "./pages/MainFrame";
 import { showModalAtom } from "./components/Modal/store";
 import Modal from "./components/Modal/Modal";
+import Loader from "./components/Loader/Loader";
 
 function App() {
   const showModal = useAtomValue(showModalAtom);
@@ -44,9 +45,11 @@ function App() {
   return (
     <>
       <Header />
-      <MainFrame>
-        <Outlet />
-      </MainFrame>
+      <Suspense fallback={<Loader />}>
+        <MainFrame>
+          <Outlet />
+        </MainFrame>
+      </Suspense>
       <Footer />
       {showModal && <Modal />}
     </>
