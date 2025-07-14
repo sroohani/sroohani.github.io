@@ -7,7 +7,7 @@ import {
   showModalAtom,
 } from "./store";
 import { createElement, useEffect, useRef, useState } from "react";
-import { type ModalCommand } from "./types";
+// import { type ModalCommand } from "./types";
 import { CircleX } from "lucide-react";
 import { useOutsideCloseCommand } from "@/hooks/use-outside-close-command";
 import Button from "@/components/Button/Button";
@@ -20,20 +20,21 @@ const Modal = () => {
   );
   const modalButtonGroups = useAtomValue(modalButtonGroupsAtom);
   const modalComponents = useAtomValue(modalItemsAtom);
-  const [modalStep, setModalStep] = useState(0);
+  // const [modalStep, setModalStep] = useState(0);
+  const [modalStep] = useState(0);
 
-  const [modalCommand, setModalCommand] = useState<ModalCommand>("");
+  // const [modalCommand, setModalCommand] = useState<ModalCommand>("");
 
   // const classNames = (className: string) => {
   //   const parts = className.split(" ");
   //   return parts.map((name) => classes[name]).join(" ");
   // };
 
-  const resetCommand = () => {
-    setModalCommand("");
-  };
+  // const resetCommand = () => {
+  //   setModalCommand("");
+  // };
 
-  const moveOn = () => setModalStep((prev) => prev + 1);
+  // const moveOn = () => setModalStep((prev) => prev + 1);
 
   const initiateClosing = () => {
     frameRef.current?.classList.add("about-to-unmount");
@@ -89,7 +90,7 @@ const Modal = () => {
                   <Button
                     title={btn.text}
                     key={btn.id!}
-                    onClick={() => setModalCommand(btn.command || "")}
+                    // onClick={() => setModalCommand(btn.command || "")}
                   />
                 ))}
               </div>
