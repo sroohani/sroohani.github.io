@@ -1,17 +1,17 @@
 import { Outlet, useLocation } from "react-router-dom";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
-import ThemeSelector from "./components/Theme/ThemeSelector";
 import { useAtom, useAtomValue, useSetAtom } from "jotai";
-import { showThemeSelectorAtom } from "./components/Theme/store";
 import { useEffect } from "react";
 import { themeAtom } from "./components/Theme/store";
 import { themeInfo } from "./components/Theme/types";
 import { promptPathAtom } from "./components/Prompt/store";
 import { MainFrame } from "./pages";
+import { showModalAtom } from "./components/Modal/store";
+import Modal from "./components/Modal/Modal";
 
 function App() {
-  const showThemeSelector = useAtomValue(showThemeSelectorAtom);
+  const showModal = useAtomValue(showModalAtom);
   const [theme, setTheme] = useAtom(themeAtom);
   const setPromptPath = useSetAtom(promptPathAtom);
   const location = useLocation();
@@ -48,7 +48,7 @@ function App() {
         <Outlet />
       </MainFrame>
       <Footer />
-      {showThemeSelector && <ThemeSelector />}
+      {showModal && <Modal />}
     </>
   );
 }

@@ -1,23 +1,26 @@
 .p-green {
-  --primary-color: #33ff33;
-  --secondary-color: #00df7d;
-  --accent-color: #a2af9f;
-  --background-color: #000;
-  --text-color: var(--primary-color);
+  --primary-clr: 20%, 100%, 20%; /* #33ff33 */
+  --secondary-clr: 0%, 87.45%, 49.02%; /* #00df7d */
+  --accent-clr: 63.53%, 68.63%, 62.35%; /* #a2af9f */
+  --background-clr: 0%, 0%, 0%; /* #000 */
+  --background-color: rgb(var(--background-clr));
+  --text-color: rgb(var(--primary-clr));
 }
 
 .p-amber {
-  --primary-color: #ffcc00;
-  --secondary-color: #ffc250;
-  --accent-color: #a2af9f;
-  --background-color: #000;
-  --text-color: var(--primary-color);
+  --primary-clr: 100% 80% 0%; /* #ffcc00 */
+  --secondary-clr: 100% 76.08% 31.37%; /* #ffc250 */
+  --accent-clr: 63.53% 68.63% 62.35%; /* #a2af9f */
+  --background-clr: 0% 0% 0%; /* #000 */
+  --background-color: rgb(var(--background-clr));
+  --text-color: rgb(var(--primary-clr));
 }
 
 .p-white {
-  --primary-color: #dcdae3;
-  --secondary-color: #b3bbc8;
-  --accent-color: #879eab;
-  --background-color: #000;
-  --text-color: var(--primary-color);
+  --primary-clr: 86.27% 85.49% 89.02%; /* #dcdae3 */
+  --secondary-clr: 70.2% 73.33% 78.43%; /* #b3bbc8 */
+  --accent-clr: 52.94% 61.96% 67.06%; /* #879eab */
+  --background-clr: 0% 0% 0%; /* #000 */
+  --background-color: rgb(var(--background-clr));
+  --text-color: rgb(var(--primary-clr));
 }

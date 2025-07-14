@@ -1,0 +1,19 @@
+.panel {
+  width: max-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-color);
+}
+
+.text {
+  color: inherit;
+  background-color: inherit;
+  padding: 0.2rem;
+  border: none;
+  outline: none;
+  height: 2rem;
+  text-align: center;
+}
