@@ -44,13 +44,24 @@ const ContactForm = () => {
 
   return (
     <div className={classes.message}>
-      <form ref={formRef} onSubmit={(e) => handleSubmit(e)}>
+      <form
+        className={classes.form}
+        ref={formRef}
+        onSubmit={(e) => handleSubmit(e)}
+      >
         <label className={classes["form-label"]} htmlFor="name">
-          <input type="text" id="name" name="name" placeholder="Name" />
+          <input
+            className="contact"
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Name"
+          />
           <span className={classes["floating-span"]}>Name</span>
         </label>
         <label className={classes["form-label"]} htmlFor="subject">
           <input
+            className="contact"
             type="text"
             id="subject"
             name="subject"

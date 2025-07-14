@@ -75,7 +75,12 @@ const ContactType = ({ onContactOptionChange }: Props) => {
       )}
       {contactOption === "email" && (
         <label className={classes["input-container"]}>
-          <input type="email" name="email" placeholder="Email" />
+          <input
+            className="contact"
+            type="email"
+            name="email"
+            placeholder="Email"
+          />
           <span className={classes["floating-span"]}>Email</span>
         </label>
       )}

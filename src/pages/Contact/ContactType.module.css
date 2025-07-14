@@ -12,8 +12,14 @@
   border-bottom: 1px var(--border-style) var(--text-color);
   scrollbar-width: thin;
   scrollbar-color: var(--text-color) var(--background-color);
+  color: var(--text-color);
+  background-color: var(--background-color);
 }
 
+.tel-container select {
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
 .none {
   width: 100%;
 }
@@ -45,14 +51,6 @@ div[class~="PhoneInput"] {
   transition-duration: 0.3s;
 }
 
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus {
-  -webkit-text-fill-color: var(--text-color);
-  -webkit-box-shadow: 0 0 0px 1000px var(--background-color) inset;
-  transition: background-color 5000s ease-in-out 0s;
-}
-
 .input-container:focus-within .floating-span,
 .input-container input:not(:placeholder-shown) + .floating-span {
   transform: translateY(-1rem);
@@ -66,8 +64,8 @@ input:-webkit-autofill:focus {
   margin-right: 0.5rem;
 }
 
-input[type="tel"],
-input[type="email"] {
+.tel-container input[type="tel"],
+input:is([class~="contact"], [type="email"]) {
   display: inline-block;
   color: var(--text-color);
   background-color: var(--background-color);
