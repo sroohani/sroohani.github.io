@@ -1,14 +1,4 @@
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: transparent;
-}
-
 .panel {
-  position: fixed;
   padding: 0.2rem;
   width: max-content;
   height: fit-content;
@@ -18,31 +8,4 @@
   justify-content: space-around;
   align-items: center;
   background-color: black;
-  border-color: var(--text-color);
-  border-width: var(--border-width);
-  border-style: var(--border-style);
-  border-radius: var(--border-radius);
-  animation: fadein 0.5s;
-}
-
-.panel[class~="about-to-unmount"] {
-  animation: fadeout 0.5s;
-}
-
-@keyframes fadein {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeout {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
 }

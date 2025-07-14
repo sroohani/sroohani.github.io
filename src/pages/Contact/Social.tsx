@@ -4,24 +4,32 @@ import { CiLinkedin } from "react-icons/ci";
 import { RiCellphoneLine } from "react-icons/ri";
 import { MdOutlineMail } from "react-icons/md";
 import resumeJson from "@/assets/json/resume.json";
-import { useAtom } from "jotai";
-import { showContactInfoModalAtom } from "@/components/ContactInfoModal/store";
-import ContactInfoModal from "@/components/ContactInfoModal/ContactInfoModal";
+import { useSetAtom } from "jotai";
+import ContactInfoDisplay from "@/components/ContactInfoDisplay/ContactInfoDisplay";
 import IconLink from "@/components/IconLink/IconLink";
-import { useRef } from "react";
+import {
+  modalButtonGroupsAtom,
+  modalItemsAtom,
+  showModalAtom,
+} from "@/components/Modal/store";
 
 const Social = () => {
-  const [showContactInfoModal, setShowContactInfoModal] = useAtom(
-    showContactInfoModalAtom
-  );
-  const contactInfoModalData = useRef<{ title: string; text: string }>({
-    title: "",
-    text: "",
-  });
+  const setModalItems = useSetAtom(modalItemsAtom);
+  const setModalButtonGroups = useSetAtom(modalButtonGroupsAtom);
+  const setShowModal = useSetAtom(showModalAtom);
 
   const handleContactItemClick = (title: string, text: string) => {
-    contactInfoModalData.current = { title, text };
-    setShowContactInfoModal(true);
+    setModalItems([
+      {
+        component: ContactInfoDisplay,
+        commonModalProps: {
+          title,
+        },
+        componentProps: Object.fromEntries([["text", text]]),
+      },
+    ]);
+    setModalButtonGroups(new Map());
+    setShowModal(true);
   };
 
   return (
@@ -54,9 +62,6 @@ const Social = () => {
           handleContactItemClick("Cell Phone", resumeJson.header.cellphone)
         }
       />
-      {showContactInfoModal && (
-        <ContactInfoModal {...contactInfoModalData.current} />
-      )}
     </div>
   );
 };

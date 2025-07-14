@@ -7,23 +7,31 @@ import { RiCellphoneLine } from "react-icons/ri";
 import { CiLinkedin, CiLocationOn } from "react-icons/ci";
 import { SiGithub } from "@icons-pack/react-simple-icons";
 import IconLink from "@/components/IconLink/IconLink";
-import { useAtom } from "jotai";
-import { useRef } from "react";
-import { showContactInfoModalAtom } from "@/components/ContactInfoModal/store";
-import ContactInfoModal from "@/components/ContactInfoModal/ContactInfoModal";
+import { useSetAtom } from "jotai";
+import ContactInfoDisplay from "@/components/ContactInfoDisplay/ContactInfoDisplay";
+import {
+  modalButtonGroupsAtom,
+  modalItemsAtom,
+  showModalAtom,
+} from "@/components/Modal/store";
 
 const Header = () => {
-  const [showContactInfoModal, setShowContactInfoModal] = useAtom(
-    showContactInfoModalAtom
-  );
-  const contactInfoModalData = useRef<{ title: string; text: string }>({
-    title: "",
-    text: "",
-  });
+  const setModalItems = useSetAtom(modalItemsAtom);
+  const setModalButtonGroups = useSetAtom(modalButtonGroupsAtom);
+  const setShowModal = useSetAtom(showModalAtom);
 
   const handleContactItemClick = (title: string, text: string) => {
-    contactInfoModalData.current = { title, text };
-    setShowContactInfoModal(true);
+    setModalItems([
+      {
+        component: ContactInfoDisplay,
+        commonModalProps: {
+          title,
+        },
+        componentProps: Object.fromEntries([["text", text]]),
+      },
+    ]);
+    setModalButtonGroups(new Map());
+    setShowModal(true);
   };
 
   return (
@@ -74,9 +82,6 @@ const Header = () => {
           title="LinkedIn"
           href={resumeJson.header.linkedin}
         />
-        {showContactInfoModal && (
-          <ContactInfoModal {...contactInfoModalData.current} />
-        )}
       </div>
     </div>
   );

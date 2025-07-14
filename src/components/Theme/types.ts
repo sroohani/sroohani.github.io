@@ -11,8 +11,3 @@ export const themeInfo: ITheme[] = [
 ] as const;
 
 export type ThemeInfo = (typeof themeInfo)[number];
-
-export type ViewportPosition = {
-  x: number;
-  y: number;
-};
