@@ -9,29 +9,29 @@ import { SiGithub } from "@icons-pack/react-simple-icons";
 import IconLink from "@/components/IconLink/IconLink";
 import { useSetAtom } from "jotai";
 import ContactInfoDisplay from "@/components/ContactInfoDisplay/ContactInfoDisplay";
-import {
-  modalButtonGroupsAtom,
-  modalItemsAtom,
-  showModalAtom,
-} from "@/components/Modal/store";
+import { modalConfigAtom } from "@/components/Modal/store";
 
 const Header = () => {
-  const setModalItems = useSetAtom(modalItemsAtom);
-  const setModalButtonGroups = useSetAtom(modalButtonGroupsAtom);
-  const setShowModal = useSetAtom(showModalAtom);
+  const setModalConfig = useSetAtom(modalConfigAtom);
 
   const handleContactItemClick = (title: string, text: string) => {
-    setModalItems([
-      {
-        component: ContactInfoDisplay,
-        commonModalProps: {
-          title,
+    setModalConfig({
+      showTitle: true,
+      showCloseButton: true,
+      closeOnClickOutside: true,
+      semiOpaqueBackground: true,
+      items: [
+        {
+          component: ContactInfoDisplay,
+          commonModalProps: {
+            title,
+          },
+          componentProps: Object.fromEntries([["text", text]]),
         },
-        componentProps: Object.fromEntries([["text", text]]),
-      },
-    ]);
-    setModalButtonGroups(new Map());
-    setShowModal(true);
+      ],
+      buttonGroups: new Map(),
+      show: true,
+    });
   };
 
   return (

@@ -4,6 +4,7 @@ import solas from "@/assets/images/solas.png";
 import noImage from "@/assets/images/no-image.jpg";
 import logo from "@/assets/images/logo.jpeg";
 import loader from "@/assets/images/loader.png";
+import iran from "@/assets/images/Flag_of_Iran_simplified.svg";
 
 const Credits = () => {
   return (
@@ -39,6 +40,7 @@ const Credits = () => {
         title="Logo by Microsoft Designer AI"
         href="https://create.microsoft.com/en-us/features/ai-image-generator"
       />
+      <Credit img={iran} title="Flag of Iran" href="https://flagofiran.com/" />
     </div>
   );
 };

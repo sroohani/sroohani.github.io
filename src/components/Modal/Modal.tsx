@@ -1,11 +1,6 @@
 import classes from "./Modal.module.css";
-import { useAtom, useAtomValue, useSetAtom } from "jotai";
-import {
-  modalButtonGroupsAtom,
-  modalItemsAtom,
-  semiOpaqueBackgroundAtom,
-  showModalAtom,
-} from "./store";
+import { useAtom } from "jotai";
+import { modalConfigAtom } from "./store";
 import { createElement, useEffect, useRef, useState } from "react";
 // import { type ModalCommand } from "./types";
 import { CircleX } from "lucide-react";
@@ -14,12 +9,7 @@ import Button from "@/components/Button/Button";
 
 const Modal = () => {
   const overlayRef = useRef<HTMLDivElement>(null);
-  const setShowModal = useSetAtom(showModalAtom);
-  const [semiOpaqueBackground, setSemiOpaqueBackground] = useAtom(
-    semiOpaqueBackgroundAtom
-  );
-  const modalButtonGroups = useAtomValue(modalButtonGroupsAtom);
-  const modalComponents = useAtomValue(modalItemsAtom);
+  const [modalConfig, setModalConfig] = useAtom(modalConfigAtom);
   // const [modalStep, setModalStep] = useState(0);
   const [modalStep] = useState(0);
 
@@ -38,16 +28,18 @@ const Modal = () => {
 
   const initiateClosing = () => {
     frameRef.current?.classList.add("about-to-unmount");
-    setTimeout(() => setShowModal(false), 500);
+    setTimeout(() => setModalConfig({ ...modalConfig, show: false }), 500);
   };
 
   const frameRef = useOutsideCloseCommand(() => {
-    initiateClosing();
+    if (modalConfig.closeOnClickOutside) {
+      initiateClosing();
+    }
   });
 
   useEffect(() => {
     if (overlayRef.current) {
-      if (semiOpaqueBackground) {
+      if (modalConfig.semiOpaqueBackground) {
         overlayRef.current.classList.add("semi-opaque");
       } else {
         overlayRef.current.classList.remove("semi-opaque");
@@ -55,46 +47,56 @@ const Modal = () => {
     }
 
     return () => {
-      setSemiOpaqueBackground(true);
+      setModalConfig({
+        ...modalConfig,
+        semiOpaqueBackground: true,
+        show: false,
+      });
     };
-  }, [semiOpaqueBackground, setSemiOpaqueBackground]);
+  }, [modalConfig, setModalConfig]);
 
   return (
     <div ref={overlayRef} className={classes.overlay}>
       <div ref={frameRef} className={classes.frame}>
-        <div className={classes["title-bar"]}>
-          {modalComponents.length && (
-            <span className={classes.title}>
-              {modalComponents[modalStep].commonModalProps.title}
-            </span>
-          )}
-          <button
-            className={classes["close-button"]}
-            tabIndex={-1}
-            title="Close"
-            onClick={initiateClosing}
-          >
-            <CircleX className={classes["close-icon"]} />
-          </button>
-        </div>
-        {modalComponents.length &&
-          createElement(modalComponents[modalStep].component, {
-            ...modalComponents[modalStep].commonModalProps,
-            ...modalComponents[modalStep].componentProps,
+        {modalConfig.showTitle && (
+          <div className={classes["title-bar"]}>
+            {modalConfig.items.length && (
+              <span className={classes.title}>
+                {modalConfig.items[modalStep].commonModalProps.title}
+              </span>
+            )}
+            {modalConfig.showCloseButton && (
+              <button
+                className={classes["close-button"]}
+                tabIndex={-1}
+                title="Close"
+                onClick={initiateClosing}
+              >
+                <CircleX className={classes["close-icon"]} />
+              </button>
+            )}
+          </div>
+        )}
+        {modalConfig.items.length &&
+          createElement(modalConfig.items[modalStep].component, {
+            ...modalConfig.items[modalStep].commonModalProps,
+            ...modalConfig.items[modalStep].componentProps,
           })}
-        {modalButtonGroups.size > 0 && (
+        {modalConfig.buttonGroups.size > 0 && (
           <div className={classes["button-bar"]}>
-            {Array.from(modalButtonGroups.entries()).map(([grpId, grp]) => (
-              <div className={classes["button-group"]} key={grpId}>
-                {grp.map((btn) => (
-                  <Button
-                    title={btn.text}
-                    key={btn.id!}
-                    // onClick={() => setModalCommand(btn.command || "")}
-                  />
-                ))}
-              </div>
-            ))}
+            {Array.from(modalConfig.buttonGroups.entries()).map(
+              ([grpId, grp]) => (
+                <div className={classes["button-group"]} key={grpId}>
+                  {grp.map((btn) => (
+                    <Button
+                      title={btn.text}
+                      key={btn.id!}
+                      // onClick={() => setModalCommand(btn.command || "")}
+                    />
+                  ))}
+                </div>
+              )
+            )}
           </div>
         )}
       </div>

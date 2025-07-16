@@ -7,12 +7,12 @@ import { themeAtom } from "./components/Theme/store";
 import { themeInfo } from "./components/Theme/types";
 import { promptPathAtom } from "./components/Prompt/store";
 import MainFrame from "./pages/MainFrame";
-import { showModalAtom } from "./components/Modal/store";
+import { modalConfigAtom } from "./components/Modal/store";
 import Modal from "./components/Modal/Modal";
 import Loader from "./components/Loader/Loader";
 
 function App() {
-  const showModal = useAtomValue(showModalAtom);
+  const modalConfig = useAtomValue(modalConfigAtom);
   const [theme, setTheme] = useAtom(themeAtom);
   const setPromptPath = useSetAtom(promptPathAtom);
   const location = useLocation();
@@ -25,7 +25,7 @@ function App() {
     const themeName = localStorage.getItem("theme");
     let themeIndex = themeInfo.findIndex((th) => th.name === themeName);
     if (themeIndex === -1) {
-      themeIndex = 0;
+      themeIndex = 2;
     }
     setTheme(themeInfo[themeIndex]);
   }, [setTheme]);
@@ -51,7 +51,7 @@ function App() {
         </MainFrame>
       </Suspense>
       <Footer />
-      {showModal && <Modal />}
+      {modalConfig.show && <Modal />}
     </>
   );
 }
