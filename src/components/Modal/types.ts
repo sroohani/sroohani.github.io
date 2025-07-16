@@ -33,6 +33,15 @@ export type ModalItem = {
   componentProps?: object;
 };
 
+export type ModalConfig = {
+  showTitle: boolean;
+  showCloseButton: boolean;
+  closeOnClickOutside: boolean;
+  semiOpaqueBackground: boolean;
+  items: ModalItem[];
+  buttonGroups: ButtonGroups;
+  show: boolean;
+};
 // export interface ModalContentData {
 //   type: string;
 // }

@@ -8,12 +8,7 @@ import { useEffect } from "react";
 import { promptPathAtom } from "@/components/Prompt/store";
 import { useCurrentPageAtomValue } from "../Navbar/hooks";
 import { showThemeSelectorAtom } from "../Theme/store";
-import {
-  modalButtonGroupsAtom,
-  modalItemsAtom,
-  semiOpaqueBackgroundAtom,
-  showModalAtom,
-} from "../Modal/store";
+import { modalConfigAtom } from "../Modal/store";
 import ThemeSelector from "../Theme/ThemeSelector";
 
 const Header = () => {
@@ -22,10 +17,7 @@ const Header = () => {
   const [showThemeSelector, setShowThemeSelector] = useAtom(
     showThemeSelectorAtom
   );
-  const setModalItems = useSetAtom(modalItemsAtom);
-  const setModalButtonGroups = useSetAtom(modalButtonGroupsAtom);
-  const setSemiOpaqueBackground = useSetAtom(semiOpaqueBackgroundAtom);
-  const setShowModal = useSetAtom(showModalAtom);
+  const [modalConfig, setModalConfig] = useAtom(modalConfigAtom);
 
   useEffect(() => {
     setPromptPath(navbarPath === "/" ? "~" : `~${navbarPath}`);
@@ -34,26 +26,24 @@ const Header = () => {
   useEffect(() => {
     if (showThemeSelector) {
       setShowThemeSelector(false);
-      setModalItems([
-        {
-          component: ThemeSelector,
-          commonModalProps: {
-            title: "Change Theme",
+      setModalConfig({
+        showTitle: true,
+        showCloseButton: true,
+        closeOnClickOutside: true,
+        semiOpaqueBackground: false,
+        items: [
+          {
+            component: ThemeSelector,
+            commonModalProps: {
+              title: "Change Theme",
+            },
           },
-        },
-      ]);
-      setModalButtonGroups(new Map());
-      setSemiOpaqueBackground(false);
-      setShowModal(true);
+        ],
+        buttonGroups: new Map(),
+        show: true,
+      });
     }
-  }, [
-    showThemeSelector,
-    setShowThemeSelector,
-    setModalItems,
-    setModalButtonGroups,
-    setSemiOpaqueBackground,
-    setShowModal,
-  ]);
+  }, [showThemeSelector, setShowThemeSelector, modalConfig, setModalConfig]);
 
   return (
     <header className={classes.header}>

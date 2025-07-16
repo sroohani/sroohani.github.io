@@ -29,9 +29,13 @@
   align-items: center;
   margin-bottom: 3rem;
   width: 80%;
+  height: 5.7rem;
 }
 
 .input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
   border-bottom: 1px var(--border-style) var(--text-color);
   width: 100%;
@@ -81,10 +85,6 @@ input[type="email"]::placeholder {
   opacity: 0;
 }
 
-input[type="tel"] {
-  border-bottom: 1px var(--border-style) var(--text-color);
-}
-
 .tel-floating-span {
   position: absolute;
   top: 0;
@@ -95,8 +95,12 @@ input[type="tel"] {
 }
 
 .tel-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
   width: 100%;
+  border-bottom: 1px var(--border-style) var(--text-color);
 }
 
 .tel-container:focus-within .tel-floating-span,
@@ -104,4 +108,23 @@ input[type="tel"] {
   .tel-floating-span {
   transform: translateY(-1rem);
   opacity: 1;
+}
+
+.form-element-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  /* border: 1px solid red; */
+  align-items: flex-start;
+  gap: 0.2rem;
+  width: 80%;
+  height: 100%;
+}
+
+.counter {
+  justify-self: flex-start;
+}
+
+.required {
+  color: red;
 }
