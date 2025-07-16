@@ -1,6 +1,6 @@
 import Tabbar from "@/components//Tabbar/Tabbar";
 import classes from "./About.module.css";
-import { aboutTabbarItems, aboutTabbarName } from "@/data/tabbar-items";
+import { aboutTabbarItems, aboutTabbarName } from "./data";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useCurrentTabAtomValue } from "@/components/Tabbar/hooks";
