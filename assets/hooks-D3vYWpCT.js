@@ -1,0 +1,1 @@
+import{e,f as a,g as n,h as s}from"./index-CM2vwyCL.js";const o=t=>{const r=n.get(t);if(!r)throw new Error(`Tabbar "${t}" does not have an atom. Did you forget to add it to the atoms map?`);return r},m=t=>{const r=o(t);return s(r)},c=t=>{const r=o(t);return a(r)},A=t=>{const r=o(t);return e(r)};export{m as a,c as b,A as u};
