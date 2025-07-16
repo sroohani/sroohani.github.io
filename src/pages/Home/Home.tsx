@@ -2,7 +2,7 @@ import Button from "@/components/Button/Button";
 import classes from "./Home.module.css";
 import { useNavigate } from "react-router-dom";
 import { useCurrentTabSetAtom } from "@/components/Tabbar/hooks";
-import { aboutTabbarItems, aboutTabbarName } from "@/data/tabbar-items";
+import { aboutTabbarItems, aboutTabbarName } from "@/pages/About/data";
 import logo from "@/assets/images/logo.jpeg";
 
 const Home = () => {

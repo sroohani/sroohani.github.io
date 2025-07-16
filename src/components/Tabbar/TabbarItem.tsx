@@ -1,11 +1,11 @@
 import classes from "./TabbarItem.module.css";
-import type { LucideIcon } from "lucide-react";
+import type { IconType } from "react-icons";
 import { useEffect, useRef, type MouseEvent } from "react";
 
 interface TabbarItemProps {
   title: string;
   to?: string;
-  icon?: LucideIcon;
+  icon?: IconType;
   active: boolean;
   onClick?: () => void;
 }
