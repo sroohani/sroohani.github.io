@@ -1,0 +1,11 @@
+.language {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 1px var(--border-style) var(--text-color);
+  padding: 0.5rem 0.5rem;
+}
+
+.name {
+  width: 15%;
+}
