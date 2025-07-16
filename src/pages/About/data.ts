@@ -5,7 +5,7 @@ import { RiCellphoneLine } from "react-icons/ri";
 import { CiLinkedin, CiLocationOn } from "react-icons/ci";
 import { SiGithub } from "@icons-pack/react-simple-icons";
 import resumeJson from "@/assets/json/resume.json";
-import type { CreditProps } from "./Credit";
+import type { CreditProps } from "./Credit/Credit";
 import solas from "@/assets/images/solas.png";
 import noImage from "@/assets/images/no-image.jpg";
 import loader from "@/assets/images/loader.png";
