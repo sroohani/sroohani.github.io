@@ -8,7 +8,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { currentTabAtoms } from "./components/Tabbar/types";
-import { aboutTabbarItems, aboutTabbarName } from "./data/tabbar-items";
+import { aboutTabbarItems, aboutTabbarName } from "./pages/About/data";
 import { atom } from "jotai";
 import { currentPageAtoms } from "./components/Navbar/types.ts";
 import navbarItems, { mainNavbarName } from "./data/navbar-items.tsx";
@@ -21,6 +21,7 @@ const Projects = lazy(() => import("./pages/Projects/Projects.tsx"));
 const NotFound = lazy(() => import("./pages/NotFound/NotFound.tsx"));
 const Resume = lazy(() => import("./pages/About/Resume/Resume.tsx"));
 const Credits = lazy(() => import("./pages/About/Credits/Credits.tsx"));
+const FAQs = lazy(() => import("./pages/About/FAQs/FAQs.tsx"));
 
 currentPageAtoms.set(mainNavbarName, atom<string>(navbarItems[0].to));
 currentTabAtoms.set(aboutTabbarName, atom<number>(aboutTabbarItems[0].id));
@@ -33,6 +34,7 @@ const router = createHashRouter(
       <Route path="about" element={<About />}>
         <Route path="resume" element={<Resume />} />
         <Route path="credits" element={<Credits />} />
+        <Route path="faqs" element={<FAQs />} />
       </Route>
       <Route path="contact" element={<Contact />} />
       <Route path="*" element={<NotFound />} />

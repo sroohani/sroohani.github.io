@@ -11,6 +11,32 @@ import noImage from "@/assets/images/no-image.jpg";
 import loader from "@/assets/images/loader.png";
 import logo from "@/assets/images/logo.jpeg";
 import iran from "@/assets/images/Flag_of_Iran_simplified.svg";
+import { type TabbarItemDef } from "@/components/Tabbar/types";
+import { FileUser, User } from "lucide-react";
+import { FaQuestion } from "react-icons/fa6";
+
+export const aboutTabbarItems: TabbarItemDef[] = [
+  {
+    id: 0,
+    title: "Resume",
+    to: "/about/resume",
+    icon: FileUser,
+  },
+  {
+    id: 1,
+    title: "Credits",
+    to: "/about/credits",
+    icon: User,
+  },
+  {
+    id: 2,
+    title: "FAQs",
+    to: "/about/faqs",
+    icon: FaQuestion,
+  },
+];
+
+export const aboutTabbarName = "about";
 
 export const contactInfo: Link[] = [
   {
