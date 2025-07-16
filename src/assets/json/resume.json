@@ -10,11 +10,126 @@
     "cellphone": "+351920262832"
   },
   "summary": "Seasoned C and C++ developer with 24+ years of experience, transitioning into full-stack development. Sefl-taught in Go, TypeScript, and React, with a focus on building performant, scalable applications. Passionate about open-source contributions and modern web architectures.",
-  "skills": {
-    "languages": ["C", "Modern C++", "Go", "TypeScript", "Python"],
-    "frontend": ["React", "HTML", "CSS", "JavaScript (ES6+)"],
-    "backend": ["Go (Fiber)", "Node.js (Express)", "REST APIs"],
-    "systems": ["Multithreading", "Memory Management", "Linux"],
-    "tools": ["Git", "Docker", "Vite", "PostgreSQL", "MariaDB"]
-  }
+  "skills": [
+    {
+      "title": "Languages",
+      "skills": ["C", "Modern C++", "Go", "TypeScript", "Python"]
+    },
+    {
+      "title": "Frontend",
+      "skills": ["React", "Next", "HTML", "CSS", "JavaScript (ES6+)"]
+    },
+    {
+      "title": "Backend",
+      "skills": ["Go (Fiber)", "Node.js (Express)", "REST APIs"]
+    },
+    {
+      "title": "Systems",
+      "skills": ["Multithreading", "Memory Management", "Linux"]
+    },
+    {
+      "title": "Tools",
+      "skills": ["Git", "Docker", "Vite", "PostgreSQL", "MariaDB"]
+    }
+  ],
+  "professional": [
+    {
+      "from": "12-2020",
+      "to": "02-2025",
+      "companies": ["Capgemini", "Aubay", "GBT Solutions", "KCS iT"],
+      "positions": ["IT consultant", "Software developer"],
+      "projects": [
+        "Summit banking system",
+        "Automotive software (ECU)",
+        "Smart grid data collectors",
+        "TV set-top boxes",
+        "IPMX/NMOS media streaming libraries"
+      ]
+    },
+    {
+      "from": "05-2014",
+      "to": "12-2020",
+      "companies": [
+        "Pouyesh Sam Tech Fartak",
+        "Payesh Systems",
+        "Fanavaran Doorandish Eshragh",
+        "Graph (Dadeh Sanji Hasin)"
+      ],
+      "positions": ["Software developer"],
+      "projects": [
+        "Software for Ethernet managed switch",
+        "Indoor positioning and location-aware information system",
+        "Automatic number plate recognition",
+        "Video transcoding and timestamp/logo superimposing software",
+        "TI Linux kernel 3.8 to run on an OMAP L-138 LCDK board",
+        "Customer Programming Software (CPS)",
+        "CPS configuration transfer over USB 2.0",
+        "UI and network connectivity for an acoustic positioning system",
+        "SNMP agent for radio repeater devices",
+        "IP Site Connect agent for radio repeater devices",
+        "Hardware Security Module (HSM)"
+      ]
+    },
+    {
+      "from": "10-2010",
+      "to": "05-2014",
+      "companies": [
+        "Datak Group of Companies",
+        "Tehran Farajeh International Co.",
+        "Behin Rahkar"
+      ],
+      "positions": [
+        "Director of software development department",
+        "Software developer"
+      ],
+      "projects": [
+        "Correlation engine of a Security Information and Events Management system (SIEM)",
+        "Extensible debugging CLI for the SIEM correlation engine",
+        "Event notifier software for the SIEM correlation engine",
+        "Web-based software for printing plastic debit cards",
+        "Cross-platform agent software for Security Information and Events Management (SIEM) system"
+      ]
+    },
+    {
+      "from": "01-2001",
+      "to": "09-2010",
+      "companies": [
+        "Rojna Animation Studios",
+        "Iranian Industrial Training and Research Center",
+        "Tehran Farajeh International Co.",
+        "Tandis San‘at Pardis, A KEYMILE subsidiary in Iran"
+      ],
+      "positions": ["Software developer"],
+      "projects": [
+        "Controller software for a Jog/Shuttle keyboard",
+        "Quiz software",
+        "Rich library of helper classes and functions",
+        "Suite of multimedia widgets",
+        "Codec converter software",
+        "Playlist Creator software",
+        "VTR emulator software",
+        "Ingest Server software and its peripheral software tool",
+        "Playout Server software and its peripheral software tools",
+        "Linux kernel module for configuring  an Ethernet switch",
+        "DSL transceiver interface of a DSLAM",
+        "Frame Grabber software (Part-time contract)",
+        "Video server (Part-time contract"
+      ]
+    }
+  ],
+  "academic": "Associate's degree in computer engineering (Hardware) - Azad university of Tehran, south branch",
+  "languages": [
+    {
+      "name": "Persian",
+      "level": "Native"
+    },
+    {
+      "name": "English",
+      "level": "Fluent"
+    },
+    {
+      "name": "Portuguese",
+      "level": "Beginner"
+    }
+  ]
 }

@@ -1,6 +1,6 @@
 import classes from "./Projects.module.css";
 import ProjectCard from "@/components/ProjectCard/ProjectCard";
-import { projects } from "@/data/projects";
+import { projects } from "./projects";
 
 const Projects = () => {
   return (

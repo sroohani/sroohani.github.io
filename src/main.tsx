@@ -19,8 +19,8 @@ const About = lazy(() => import("./pages/About/About.tsx"));
 const Contact = lazy(() => import("./pages/Contact/Contact.tsx"));
 const Projects = lazy(() => import("./pages/Projects/Projects.tsx"));
 const NotFound = lazy(() => import("./pages/NotFound/NotFound.tsx"));
-const Resume = lazy(() => import("./pages/About/Resume.tsx"));
-const Credits = lazy(() => import("./pages/About/Credits.tsx"));
+const Resume = lazy(() => import("./pages/About/Resume/Resume.tsx"));
+const Credits = lazy(() => import("./pages/About/Credits/Credits.tsx"));
 
 currentPageAtoms.set(mainNavbarName, atom<string>(navbarItems[0].to));
 currentTabAtoms.set(aboutTabbarName, atom<number>(aboutTabbarItems[0].id));

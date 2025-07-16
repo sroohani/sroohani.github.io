@@ -1,12 +1,13 @@
 import classes from "./Credit.module.css";
 
-interface Props {
+export interface CreditProps {
+  id?: number;
   img?: string;
   title: string;
   href?: string;
 }
 
-const Credit = ({ img, title, href }: Props) => {
+const Credit = ({ img, title, href }: CreditProps) => {
   return (
     <div className={classes.credit}>
       <div className={classes["img-frame"]}>
