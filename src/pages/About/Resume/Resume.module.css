@@ -28,6 +28,7 @@
 .title {
   display: flex;
   justify-content: space-between;
+  padding: 2rem;
   width: 100%;
 }
 
@@ -73,4 +74,23 @@
   width: 100%;
   background-color: var(--text-color);
   align-self: center;
+}
+
+.download svg {
+  stroke: var(--text-color);
+}
+
+.download {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px var(--border-style) var(--text-color);
+  border-radius: var(--border-radius);
+  transition: box-shadow 0.3s ease-in-out;
+  width: 32px;
+  height: 32px;
+}
+
+.download:hover {
+  box-shadow: 0 0 6px 2px var(--text-color);
 }

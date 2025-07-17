@@ -5,15 +5,22 @@
     "map": "https://maps.app.goo.gl/eRJhSejNWNrkuKbt5",
     "website": "https://sroohani.github.io",
     "github": "https://github.com/sroohani",
-    "linkedin": "https://www.linkedin.com/in/shahramroohani/",
+    "linkedin": "https://www.linkedin.com/in/shahramroohani",
     "email": "sh.roohani@gmail.com",
     "cellphone": "+351920262832"
   },
-  "summary": "Seasoned C and C++ developer with 24+ years of experience, transitioning into full-stack development. Sefl-taught in Go, TypeScript, and React, with a focus on building performant, scalable applications. Passionate about open-source contributions and modern web architectures.",
+  "summary": "Seasoned C and C++ developer with 24+ years of experience, transitioning into full-stack development. Sefl-taught in Go, JavaScript, TypeScript, React, Next, and Python, with a focus on building performant, scalable applications. Passionate about open-source contributions and modern web architectures.",
   "skills": [
     {
       "title": "Languages",
-      "skills": ["C", "Modern C++", "Go", "TypeScript", "Python"]
+      "skills": [
+        "C",
+        "Modern C++",
+        "Go",
+        "JavaScript (ES6+)",
+        "TypeScript",
+        "Python"
+      ]
     },
     {
       "title": "Frontend",
@@ -29,7 +36,7 @@
     },
     {
       "title": "Tools",
-      "skills": ["Git", "Docker", "Vite", "PostgreSQL", "MariaDB"]
+      "skills": ["Git", "Docker", "Vite", "PostgreSQL", "MariaDB", "MongoDB"]
     }
   ],
   "professional": [
@@ -113,7 +120,7 @@
         "Linux kernel module for configuring  an Ethernet switch",
         "DSL transceiver interface of a DSLAM",
         "Frame Grabber software (Part-time contract)",
-        "Video server (Part-time contract"
+        "Video server (Part-time contract)"
       ]
     }
   ],

@@ -6,15 +6,33 @@ import ContactList from "@/components/ContactList/ContactList";
 import CollapsibleCard from "@/components/CollapsibleCard/CollapsibleCard";
 import JobExperience from "../JobExperience/JobExperience";
 import Language from "../Language/Language";
+import { PDFDownloadLink, Font } from "@react-pdf/renderer";
+import PDF from "./PDF";
+import { useEffect } from "react";
+import { Buffer } from "buffer";
 
 const Header = () => {
+  useEffect(() => {
+    Font.register({ family: "Helvetica", src: "" });
+    window.Buffer = window.Buffer || Buffer;
+  }, []);
+
   return (
     <div className={classes.header}>
       <div className={classes.title}>
         <h3>{resumeJson.header.name}</h3>
-        <a href="#">
-          <Download />
-        </a>
+        <PDFDownloadLink
+          document={<PDF />}
+          fileName={`${resumeJson.header.name} - CV.pdf`}
+        >
+          {
+            (/*{ blob, url, loading, error }*/) => (
+              <span className={classes.download} title="Download PDF">
+                <Download />
+              </span>
+            )
+          }
+        </PDFDownloadLink>
       </div>
       <hr className={classes.hr} />
       <ContactList links={contactInfo} />
