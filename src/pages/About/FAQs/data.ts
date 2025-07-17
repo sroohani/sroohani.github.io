@@ -18,7 +18,7 @@ export const faqs: FAQ[] = [
     question:
       "What happens to our contact info if we send you messages using the contact form?",
     answer:
-      "Your contact info will not be stored anywhere. It will only be emailed to me along with your message so that I can contact you back. At any point in time, you can send a deletion request to me, and within the next few hour I will delete all your contact info from my email.",
+      "Your contact info will not be stored anywhere. It will only be emailed to me along with your message so that I can contact you back. At any point in time, you can send a deletion request to me, and within the next few hours I will delete all your contact info from my email.",
   },
   {
     id: 3,
