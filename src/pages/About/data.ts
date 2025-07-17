@@ -11,6 +11,7 @@ import noImage from "@/assets/images/no-image.jpg";
 import loader from "@/assets/images/loader.png";
 import logo from "@/assets/images/logo.jpeg";
 import iran from "@/assets/images/Flag_of_Iran_simplified.svg";
+import desert from "@/assets/images/jared-evans-Wwg1TzCuV9E-unsplash.jpg";
 import { type TabbarItemDef } from "@/components/Tabbar/types";
 import { FileUser, User } from "lucide-react";
 import { FaQuestion } from "react-icons/fa6";
@@ -127,5 +128,11 @@ export const creditsInfo: CreditProps[] = [
     img: iran,
     title: "Flag of Iran",
     href: "https://flagofiran.com/",
+  },
+  {
+    id: 8,
+    img: desert,
+    title: "Photo by Jared Evans from Unsplash",
+    href: "https://unsplash.com/photos/desert-sand-Wwg1TzCuV9E",
   },
 ];

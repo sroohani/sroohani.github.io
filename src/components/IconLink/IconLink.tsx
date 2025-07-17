@@ -25,6 +25,7 @@ const IconLink = ({
     navigator.clipboard !== undefined &&
     navigator.clipboard.writeText !== undefined;
   const adaptedTitle = useRef<string>("");
+  const anchorRef = useRef<HTMLAnchorElement>(null);
   const [showCopy, setShowCopy] = useState(true);
 
   const handleCopy = async (e: MouseEvent<HTMLAnchorElement>) => {
@@ -49,12 +50,16 @@ const IconLink = ({
       }
     } else {
       adaptedTitle.current = title;
+      if (anchorRef.current) {
+        anchorRef.current.href = href || "";
+      }
     }
   });
 
   return (
     <a
-      href={withCopy ? "" : href}
+      ref={anchorRef}
+      className={classes.anchor}
       target={withCopy ? "_self" : "_blank"}
       onClick={withCopy ? handleCopy : undefined}
     >
