@@ -1,15 +1,20 @@
-import classes from "./FAQs.module.css";
+import { faqs } from "./data";
+import CollapsibleCard from "@/components/CollapsibleCard/CollapsibleCard";
 
-const Why = () => {
+const FAQs = () => {
   return (
-    <div className={classes.container}>
-      <div className={classes.question}>Why did I choose these themes?</div>
-      <p className={classes.answer}>
-        Simply put, nostalgia. They remind me of the monochrome displays we had
-        in our highschool in 1995, when I started using IBM PCs.
-      </p>
-    </div>
+    <>
+      {faqs.map((faq) => (
+        <CollapsibleCard
+          title={faq.question}
+          normalTitleFont={true}
+          key={faq.id}
+        >
+          <p>{faq.answer}</p>
+        </CollapsibleCard>
+      ))}
+    </>
   );
 };
 
-export default Why;
+export default FAQs;

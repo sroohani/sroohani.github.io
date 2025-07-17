@@ -2,14 +2,18 @@ import classes from "./Resume.module.css";
 import resumeJson from "@/assets/json/resume.json";
 import { Download } from "lucide-react";
 import { contactInfo } from "../data";
-import ContactList from "@/components/ContactList/ContactList";
-import CollapsibleCard from "@/components/CollapsibleCard/CollapsibleCard";
-import JobExperience from "../JobExperience/JobExperience";
-import Language from "../Language/Language";
 import { PDFDownloadLink, Font } from "@react-pdf/renderer";
-import PDF from "./PDF";
 import { useEffect } from "react";
 import { Buffer } from "buffer";
+import { lazy } from "react";
+
+const ContactList = lazy(() => import("@/components/ContactList/ContactList"));
+const CollapsibleCard = lazy(
+  () => import("@/components/CollapsibleCard/CollapsibleCard")
+);
+const JobExperience = lazy(() => import("../JobExperience/JobExperience"));
+const Language = lazy(() => import("../Language/Language"));
+const PDF = lazy(() => import("./PDF"));
 
 const Header = () => {
   useEffect(() => {

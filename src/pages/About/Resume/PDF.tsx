@@ -1,5 +1,4 @@
 import { Page, Text, View, Document } from "@react-pdf/renderer";
-import ContactItem from "./ContactItem";
 import { trimmedLinkText } from "./utils";
 import styles from "./styles";
 import resumeJson from "@/assets/json/resume.json";
@@ -9,9 +8,12 @@ import cellphone from "@/assets/images/resume/smartphone.png";
 import website from "@/assets/images/resume/globe.png";
 import github from "@/assets/images/resume/github.png";
 import linkedin from "@/assets/images/resume/InBug-Black.png";
-import Skill from "./Skill";
-import Experience from "./Experience";
-import Language from "./Language";
+import { lazy } from "react";
+
+const ContactItem = lazy(() => import("./ContactItem"));
+const Skill = lazy(() => import("./Skill"));
+const Experience = lazy(() => import("./Experience"));
+const Language = lazy(() => import("./Language"));
 
 const PDF = () => {
   return (
