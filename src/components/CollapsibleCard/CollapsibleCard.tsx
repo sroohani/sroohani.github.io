@@ -5,13 +5,25 @@ import { Plus, Minus } from "lucide-react";
 interface Props {
   title?: string;
   children?: ReactNode;
+  normalTitleFont?: boolean;
 }
 
-const CollapsibleCard = ({ title, children }: Props) => {
+const CollapsibleCard = ({
+  title,
+  children,
+  normalTitleFont = false,
+}: Props) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
   const childerContainerRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLSpanElement>(null);
 
+  useEffect(() => {
+    if (titleRef.current && normalTitleFont) {
+      titleRef.current.style.fontSize = "1rem";
+      titleRef.current.style.fontWeight = "400";
+    }
+  }, [normalTitleFont]);
   useEffect(() => {
     if (contentRef.current && childerContainerRef.current) {
       if (isExpanded) {
@@ -28,7 +40,9 @@ const CollapsibleCard = ({ title, children }: Props) => {
         className={classes["title-bar"]}
         onClick={() => setIsExpanded(!isExpanded)}
       >
-        <span className={classes.title}>{title}</span>
+        <span ref={titleRef} className={classes.title}>
+          {title}
+        </span>
         {isExpanded ? <Minus /> : <Plus />}
       </div>
 
