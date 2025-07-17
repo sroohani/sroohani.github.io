@@ -1,0 +1,32 @@
+.frame {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-image: url("@/assets/images/jared-evans-Wwg1TzCuV9E-unsplash.jpg");
+  background-position: center;
+  color: var(--background-color);
+}
+
+.home-link,
+.home-link:active,
+.home-link:visited {
+  display: inline-block;
+  width: 20ch;
+  margin-top: 2em;
+  padding: 1em;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  font-size: 2rem;
+  font-weight: 600;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius);
+  transition: background-color 0.3s ease-in-out;
+}
+
+.home-link:hover {
+  background-color: #fff;
+}
