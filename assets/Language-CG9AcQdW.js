@@ -1,1 +1,0 @@
-import{j as a}from"./index-CGP5prD1.js";const l="_language_1h1wy_1",c="_name_1h1wy_9",e={language:l,name:c},t=({name:s,level:n})=>a.jsxs("div",{className:e.language,children:[a.jsx("div",{className:e.name,children:s}),a.jsx("div",{children:n})]});export{t as default};
