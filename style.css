@@ -26,11 +26,13 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 1rem;
 }
 
 span {
   margin-bottom: 1rem;
 }
+
 a,
 a:visited,
 a:active,
@@ -54,4 +56,22 @@ a:focus {
 a:hover {
   background-color: aliceblue;
   color: black;
+}
+
+.title {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+#timer {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
 }
